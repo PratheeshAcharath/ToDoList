@@ -1,61 +1,46 @@
-if (localStorage.getItem("username") === "admin") {
-    function out() {
-      $("#preview").text(" ");
-      var total = "";
-      $.get("https://jsonplaceholder.typicode.com/todos", (res, status, xhr) => {
-        console.log(res);
-        res.forEach((element) => {
-          if (element.completed === true) {
-            total += `<pre><input type='checkbox' id='${element.id}' checked disabled><span style='color:grey;'> &nbsp${element.id}. ${element.title}</span></pre> <br><hr>`;
-  
-            // console.log(`a${element.id}`);
-            console.log(element.completed);
-          } else {
-            total += `<pre><input type='checkbox' id='${element.id}'> &nbsp${element.id}. ${element.title}</pre> <br><hr>`;
-          }
-  
-          $("#preview").html(total);
-        });
-      });
-      localStorage.setItem("name", "admin");
-      var a = localStorage.getItem("name");
-      console.log(a);
-    }
-    function redirect() {
-      localStorage.setItem("name", "");
-      location.href = "./index.html";
-    }
-  
-    var n;
-  
-    var b = 0;
-    $("body").change(() => {
-      var countChecked = function () {
-        n = $("input:checked").length;
-        n = n - 90;
-  
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            if (n == 0) {
-              reject();
-            } else if (n % 5 == 0 && b - n < 0) {
-              resolve("Congrats. 5 Tasks have been Successfully Completed");
-            } else {
-              b = n;
+const todoNode = document.querySelector("#todo");
+const buttonNode = document.querySelector("#button");
+var taskCompleted = 0
+
+function showList() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let response = JSON.parse(this.response);
+            let data = "";
+            for (var i = 0; i < response.length; i++) {
+                if (response[i].completed == true) {
+                    data += `<li class="list-group-item list-group-item-primary">
+                       <input id ="checkBox${i + 1}" class="form-check-input me-1" type="checkbox" value="" checked disabled>
+                       <i class='bx bx-checkbox-minus'></i>
+                       <label>${response[i].title}</label>
+                     </li>`;
+                } else {
+                    data += `<li class="list-group-item list-group-item-secondary">
+                    <input id ="checkBox${i + 1}" class="form-check-input me-1" type="checkbox" value="" onchange="checkTodo(${i + 1})">
+                    <i class='bx bx-checkbox-minus'></i>
+                    <label>${response[i].title}</label>
+                  </li>`;
+                }
             }
-          }, 100);
-        });
-  
-        // $( "div" ).text( n + (n === 1 ? " is" : " are") + " checked!" );
-      };
-      countChecked().then((s) => alert(s));
-  
-      //   $( "input[type=checkbox]" ).on( "click", countChecked );
-      console.log(n);
-    });
-  } else {
-    $("#preview").html(
-      "<h1 style='text-align:center;color:red;'>Session Time out</h1>"
-    );
-  }
-  
+            todoNode.innerHTML = data;
+            buttonNode.innerHTML = "";
+        }
+    }
+    xhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+    xhttp.send();
+}
+
+
+
+function checkTodo(num) {
+    const checkBoxNode = document.querySelector(`#checkBox${num}`);
+    if (checkBoxNode.checked) {
+        taskCompleted += 1;
+    } else {
+        taskCompleted -= 1;
+    }
+    if (taskCompleted == 5) {
+        alert("Congrats. 5 Tasks have been Successfully Completed.");
+    }
+}

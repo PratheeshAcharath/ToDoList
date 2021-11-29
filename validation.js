@@ -1,18 +1,27 @@
+const userNode = document.querySelector("#username");
+const passNode = document.querySelector("#password");
+const username = "admin";
+const password = "12345";
 
-
-
-
-function validate(){
-var username = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-if ( username == "admin" && password == "12345"){
-// alert ("Login successfully");
-window.location = "index2.html"; // Redirecting to other page.
-return false;
+function validate(callback) {
+    return callback();
 }
-else{
 
-alert("Username or Password is incorrect");
+function redirect() {
+    if (userNode.value == username && passNode.value == password) {
+        return true;
+    } else {
+        alert("Incorrect Username or Password.");
+        return false;
+    }
+}
 
+function isSigned(){
+    if (userNode.value == username && passNode.value == password) {
+        return true;
+    } else {
+        alert("Incorrect Username or Password.");
+        return false;
+    }
 }
-}
+

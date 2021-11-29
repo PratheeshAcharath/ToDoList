@@ -1,81 +1,106 @@
 
-/* Below line is used for online Google font */
-@import url(http://fonts.googleapis.com/css?family=Raleway);
-h2{
-background-color: #ffffff;
-padding: 30px 35px;
-margin: -10px -50px;
-text-align:center;
-border-radius: 10px 10px 0 0;
+
+
+
+
+
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    
+    background-size:cover
+    
 }
-hr{
-margin: 10px -50px;
-border: 0;
-border-top: 1px solid rgb(160, 19, 19);
-margin-bottom: 40px;
+
+
+.list-group {
+    margin-top: 100px;
 }
-div.container{
-width: 900px;
-height: 610px;
-margin:35px auto;
-font-family: 'Raleway', sans-serif;
+
+#button {
+    margin-top: 100px;
 }
-div.main{
-width: 300px;
-padding: 10px 50px 25px;
-border: 2px solid gray;
-border-radius: 10px;
-font-family: raleway;
-float:left;
-margin-top:50px;
+
+.signin {
+    position: relative;
+    margin-top: 150px;
+    max-width:550px;
+    height: 470px;
 }
-input[type=text],input[type=password]{
-width: 100%;
-height: 40px;
-padding: 5px;
-margin-bottom: 25px;
-margin-top: 5px;
-border: 2px solid #ccc;
-color: #363333;
-font-size: 16px;
-border-radius: 5px;
+
+.myCtn {
+    position: relative;
+    background-color: white;
+    background-size: cover;
+    border-radius: 20px;
+    height: 100%;
+    padding: 20px;
+    padding-left: 50px;
 }
-label{
-color: #2c2929;
-text-shadow: 0 1px 0 rgb(90, 84, 84);
-font-size: 14px;
-font-weight: bold;
+
+.myCtn header {
+    color: #2C272E;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
-center{
-font-size:32px;
+
+.myCtn label {
+    color: #766B55;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
-.note{
-color:rgb(119, 55, 55);
+
+.myCard {
+    position: relative;
+    background: #fff;
+    height: 100%;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
 }
-.valid{
-color:rgb(86, 190, 86);
+
+
+
+.myCtn .myInput {
+    width: 230px;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    border: none;
+    -webkit-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
 }
-.back{
-text-decoration: none;
-border: 1px solid rgb(80, 127, 163);
-background-color: rgb(56, 160, 180);
-padding: 3px 20px;
-border-radius: 2px;
-color: black;
+
+.myCtn .myInput:focus {
+    outline: none;
 }
-input[type=button]{
-font-size: 16px;
-background: linear-gradient(#e2a809d5 5%, #ffdd7f 100%);
-border: 1px solid #6b5d34;
-color: #4E4D4B;
-font-weight: bold;
-cursor: pointer;
-width: 100%;
-border-radius: 5px;
-padding: 10px 0;
-outline:none;
+
+.myForm {
+    position: relative;
+    margin-top: 50px;
 }
-input[type=button]:hover{
-background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+
+.myCtn .butt {
+    background: linear-gradient(45deg, #271010, #0b38b6);
+    color: #fff;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    -webkit-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+}
+
+.myCtn .butt:hover {
+    background: linear-gradient(45deg, #4A69BB, #617BE3);
+}
+
+.myCtn .butt:focus {
+    outline: none;
 }
 
