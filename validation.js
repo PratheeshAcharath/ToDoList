@@ -1,13 +1,18 @@
 
 
-function validateform() {
-    var uname = document.getElementById("uname").value;
-    var psw = document.getElementById("psw").value;
-    if (uname == "admin" && psw == "12345") {
-        // alert ("Login successfully");
-        window.location = "https://retail.ictkerala.org/mod/page/view.php?id=7427";
-        return false;
-    } else {
-        alert("Username or Password is incorrect");
-    }
+
+
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "admin" && password == "12345"){
+// alert ("Login successfully");
+window.location = "index2.html"; // Redirecting to other page.
+return false;
+}
+else{
+
+alert("Username or Password is incorrect");
+
+}
 }
